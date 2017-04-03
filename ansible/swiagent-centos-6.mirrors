@@ -1,0 +1,4 @@
+http://oh1-mon-p001.corelynk.net/Orion/AgentManagement/LinuxPackageRepository.ashx?path=/dists/centos-6/$basearch
+http://noc.itlynk.com:80/Orion/AgentManagement/LinuxPackageRepository.ashx?path=/dists/centos-6/$basearch
+http://OH1-MON-P001:80/Orion/AgentManagement/LinuxPackageRepository.ashx?path=/dists/centos-6/$basearch
+http://10.226.0.37:80/Orion/AgentManagement/LinuxPackageRepository.ashx?path=/dists/centos-6/$basearch

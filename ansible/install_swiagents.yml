@@ -1,0 +1,20 @@
+---
+- name:  install swiagent_connect
+  hosts: '{{ cluster| default("all") }}'
+  become: yes
+  tasks:
+        - name: Hello
+          shell:  hostname
+          register: myecho
+        - debug: msg="{{myecho.stdout}}"
+        - name: copy repo file
+          copy: src={{item.src}} dest={{item.dest}}
+          vars:
+                var_path: /etc/yum.repos.d/
+          with_items:
+        ### The src path is the cwd where ansible is running from , in my case is my cwd of my local ###
+                - { src: 'swiagent-centos-6.repo', dest: '{{var_path}}' }
+                - { src: 'swiagent-centos-6.mirrors', dest: '{{ var_path }}' }
+        - name: install swiagent
+          yum: pkg=swiagent.x86_64 state=installed
+

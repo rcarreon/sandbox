@@ -1,0 +1,5 @@
+[swiagent]
+name=SolarWinds Agent
+mirrorlist=file:///etc/yum.repos.d/swiagent-centos-6.mirrors
+enabled=1
+gpgcheck=0

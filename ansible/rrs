@@ -1,0 +1,16 @@
+# this file is managed by Puppet in the resolv module,
+# please don't edit it on app1v-noc.tp.dev.lax.gnmedia.net
+
+
+#search gnmedia.net
+options rotate
+options timeout:1
+options attempts:5
+#nameserver 10.64.81.86
+#nameserver 10.64.81.160
+#nameserver 10.64.81.189
+#nameserver 10.64.81.168
+nameserver 10.64.54.14
+nameserver 10.64.54.15
+#sortlist 10.64.64.0/255.255.254.0
+~                                        

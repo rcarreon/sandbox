@@ -1,0 +1,25 @@
+---
+- name:  Installing odbc-connect package
+  hosts: '{{ cluster| default("all") }}'
+  become: yes
+  tasks:
+        - name: Hello
+          shell:  hostname
+          register: myecho
+        - debug: msg="{{myecho.stdout}}"
+        ### copy rpm file to remote host ###
+        - name: copy rpm file
+          copy: src=mysql-connector-odbc-5.3.7-1.x86_64.rpm dest=/home/rcarreon/mysql-connector-odbc-5.3.7-1.x86_64.rpm
+        ### install deprecrated odbc pack to get the necesary libs ###
+        - name: install mysql odbc connector 
+          yum: 
+                name: mysql-connector-odbc.x86_64 
+                state: installed 
+        ### remove the deprecated odbc ###
+        - name: remove mysql odbc to left necesary libs
+          yum: 
+                name: mysql-connector-odbc.x86_64 
+                state: removed
+        ### install  right odbc package ###
+        - name: install odbc connector 
+          shell: rpm -ivh /home/rcarreon/mysql-connector-odbc-5.3.7-1.x86_64.rpm

@@ -1,0 +1,26 @@
+---
+- name:  simple echo
+  hosts: '{{ cluster| default("all") }}' 
+  #sudo: yes
+  become: yes
+  tasks: 
+        - name: Hello
+          #changed_when: false
+          shell:  hostname 
+          register: myecho
+        - debug: msg="{{myecho.stdout}}"
+        #- name: apache status
+        #  service: name=httpd state=started
+        #  systemd: name=httpd state=started
+        #- name: removing fping
+        #  yum: pkg=fping state=removed
+        #  changed_when: false
+        #  Copy the repo solarwinds  to the servers
+        #- name: copy ssh file
+          #copy: src={{key}} dest=/etc/ssh/keys/{{key}}
+        #  copy: src=swiagent-centos-6.repo dest=/etc/yum.repos.d/swiagent-centos-6.repo
+        #  Installing the swiagent package via yum 
+        #- name: install swiagent
+        #  yum: pkg=swiagent.x86_64 state=installed
+       
+        
